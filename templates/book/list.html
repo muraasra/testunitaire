@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block title %}Catalogue{% endblock %}{% block content %}
+<h1>Catalogue</h1>
+<table class="table table-striped"><tr><th>Titre</th><th>Auteur</th><th>Catégorie</th><th>Dispo</th></tr>
+{% for b in object_list %}<tr>
+<td><a href="{{ b.get_absolute_url }}">{{ b.title }}</a></td>
+<td>{{ b.author }}</td><td>{{ b.category }}</td><td>{{ b.available_copies }}</td></tr>{% empty %}
+<tr><td colspan="4">Aucun résultat</td></tr>{% endfor %}</table>
+{% endblock %}
